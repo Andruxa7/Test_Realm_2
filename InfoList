@@ -1,0 +1,53 @@
+
+SwiftBeginner-L8
+(ВИДЕОУРОК №8. Realm.io.)
+
+/*
+After spending almost two days on this issue, I might have found the solution on my own. Xcode sometimes seems to not be able to compile RealmSwift source (error: "Could not build Objective-C module 'RealmSwift'"). Please incorporate my solution to the problem in your docs.
+
+To overcome this issue, the module needs to be built on the project:
+
+Go To: Product > Schemes > New Scheme...
+Select: RealmSwift and click OK
+Build the RealmSwift target (cmd + b)
+*/
+
+
+// Процесс установки в терминале:
+======================= Terminal =====================
+
+Last login: Wed Feb  5 19:01:51 on console
+Andreys-MacBook-Pro:~ andreystecenko$ sudo gem install cocoapods
+Password:
+Successfully installed cocoapods-1.8.4
+Parsing documentation for cocoapods-1.8.4
+Done installing documentation for cocoapods after 2 seconds
+1 gem installed
+Andreys-MacBook-Pro:~ andreystecenko$ pod repo update
+Updating spec repo `trunk`
+Andreys-MacBook-Pro:~ andreystecenko$ cd /Users/andreystecenko/Documents/iOS/Swift/ITVDN/1.\ Swift\ Starter/L8_Realm.io/Test_Realm/Test_Realm_2
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ pwd
+/Users/andreystecenko/Documents/iOS/Swift/ITVDN/1. Swift Starter/L8_Realm.io/Test_Realm/Test_Realm_2
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ touch Podfile
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ ls
+Podfile            Test_Realm        Test_Realm.xcodeproj
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ vi Podfile
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ cat Podfile
+platform :ios, '12.0'
+use_frameworks!
+
+target 'Test_Realm' do
+  pod 'RealmSwift'
+end
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ pod install
+Analyzing dependencies
+Downloading dependencies
+Installing Realm (4.3.1)
+Installing RealmSwift (4.3.1)
+Generating Pods project
+Integrating client project
+
+[!] Please close any current Xcode sessions and use `Test_Realm.xcworkspace` for this project from now on.
+Pod installation complete! There is 1 dependency from the Podfile and 2 total pods installed.
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$ vi Podfile
+Andreys-MacBook-Pro:Test_Realm_2 andreystecenko$
